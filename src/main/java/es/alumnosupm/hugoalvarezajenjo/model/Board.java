@@ -13,7 +13,7 @@ public class Board {
     private final int numCols;
     private final int numMines;
 
-    public Board(int numRows, int numCols, int numMines) {
+    public Board(final int numRows, final int numCols, final int numMines) {
         this.cells = new Cell[numRows][numCols];
 
         this.numRows = numRows;
@@ -21,7 +21,7 @@ public class Board {
         this.numMines = numMines;
 
         initCells();
-        initMines();
+        placeMines(numMines);
     }
 
     public Board() {
@@ -36,7 +36,7 @@ public class Board {
         }
     }
 
-    private void initMines() {
+    private void placeMines(final int numMines) {
         Random random = new Random();
         int minesPlaced = 0;
 
@@ -51,7 +51,7 @@ public class Board {
         }
     }
 
-    public Cell getCell(int row, int column) {
+    public Cell getCell(final int row, final int column) {
         return cells[row][column];
     }
 
@@ -67,21 +67,8 @@ public class Board {
         return numMines;
     }
 
-    public void moveMine(int row, int column) {
+    public void moveMine(final int row, final int column) {
+        placeMines(1);
         getCell(row, column).setMine(false);
-        placeSingleMineRandomExceptIn(row, column);
-    }
-
-    private void placeSingleMineRandomExceptIn(int row, int column) {
-        Random random = new Random();
-        int rowTarget;
-        int columnTarget;
-
-        do {
-            rowTarget = random.nextInt(numRows);
-            columnTarget = random.nextInt(numCols);
-        } while (rowTarget == row && columnTarget == column);
-
-        getCell(rowTarget, columnTarget).setMine();
     }
 }
