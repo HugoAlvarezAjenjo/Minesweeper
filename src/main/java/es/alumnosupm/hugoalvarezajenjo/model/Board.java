@@ -71,4 +71,27 @@ public class Board {
         placeMines(1);
         getCell(row, column).setMine(false);
     }
+
+    public boolean isInBoard(final int row, final int column) {
+        return 0 <= row && row < numRows &&
+                0 <= column && row < numCols;
+    }
+
+    public int getCellNum(final int row, final int column) {
+        int cellNum = 0;
+
+        for (int i = row - 1; i <= row + 1; i++) {
+            for (int j = column - 1; j <= column + 1; j++) {
+                if (isInBoard(i, j) && !(i == row && j == column) && getCell(i, j).hasMine()) {
+                    cellNum++;
+                }
+            }
+
+        }
+
+
+        return cellNum;
+    }
+
+
 }
