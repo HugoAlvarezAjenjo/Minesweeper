@@ -1,34 +1,31 @@
 package es.alumnosupm.hugoalvarezajenjo.model;
 
+import static es.alumnosupm.hugoalvarezajenjo.model.CellStatus.*;
+
 public class Cell {
-    private boolean isRevealed;
+
+    private CellStatus status;
     private boolean hasMine;
-    private boolean isMarked;
 
     public Cell() {
-        isMarked = false;
-        isRevealed = false;
+        status = NONE;
         hasMine = false;
-    }
-
-    public boolean isRevealed() {
-        return isRevealed;
     }
 
     public boolean hasMine() {
         return hasMine;
     }
 
-    public boolean isMarked() {
-        return isMarked;
+    public CellStatus getStatus() {
+        return status;
     }
 
-    public void toggleMark() {
-        isMarked = !isMarked;
+    public void setStatus(CellStatus cellStatus) {
+        this.status = cellStatus;
     }
 
     public void reveal() {
-        isRevealed = true;
+        setStatus(REVEALED);
     }
 
     public void setMine(boolean bool) {
