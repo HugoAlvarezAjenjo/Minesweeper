@@ -13,6 +13,9 @@ public class Board {
     private final int numCols;
     private final int numMines;
 
+    private int cellsLeft;
+    private boolean isFirstMove;
+
     public Board(final int numRows, final int numCols, final int numMines) {
         this.cells = new Cell[numRows][numCols];
 
@@ -20,8 +23,19 @@ public class Board {
         this.numCols = numCols;
         this.numMines = numMines;
 
+        this.cellsLeft = numRows * numCols - numMines;
+        this.isFirstMove = true;
+
         initCells();
         placeMines(numMines);
+    }
+
+    public boolean isFirstMove() {
+        return isFirstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        isFirstMove = firstMove;
     }
 
     public Board() {
@@ -93,5 +107,11 @@ public class Board {
         return cellNum;
     }
 
+    public int getCellsLeft() {
+        return cellsLeft;
+    }
 
+    public void setCellsLeft(int cellsLeft) {
+        this.cellsLeft = cellsLeft;
+    }
 }
