@@ -30,16 +30,16 @@ public class Board {
         placeMines(numMines);
     }
 
+    public Board() {
+        this(ROWS, COLUMNS, MINE_NUMBER);
+    }
+
     public boolean isFirstMove() {
         return isFirstMove;
     }
 
     public void setFirstMove(final boolean firstMove) {
         isFirstMove = firstMove;
-    }
-
-    public Board() {
-        this(ROWS, COLUMNS, MINE_NUMBER);
     }
 
     private void initCells() {
