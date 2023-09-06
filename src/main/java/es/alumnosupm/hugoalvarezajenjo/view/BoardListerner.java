@@ -53,6 +53,7 @@ public class BoardListerner implements ActionListener {
             }
         } else {
             int cellNum = board.getCellNum(row, column);
+            board.setFirstMove(false);
             revealViewCell(row, column, cellNum);
 
             if (cellNum == 0) {
@@ -89,6 +90,7 @@ public class BoardListerner implements ActionListener {
         }
     }
 
+    //* Simplificar estas dos funciones
     public void gameOver() {
         boardView.textField.setForeground(Color.RED);
         boardView.textField.setText("Game Over!");

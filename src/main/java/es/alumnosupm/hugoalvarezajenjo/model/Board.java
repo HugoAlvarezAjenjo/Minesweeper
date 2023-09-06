@@ -88,10 +88,10 @@ public class Board {
 
     public boolean isInBoard(final int row, final int column) {
         return 0 <= row && row < numRows &&
-                0 <= column && row < numCols;
+                0 <= column && column < numCols;
     }
 
-    public int getCellNum(final int row, final int column) {
+    public int getCellNum(final int row, final int column) { // TODO: No cuenta correctamente
         int cellNum = 0;
 
         for (int i = row - 1; i <= row + 1; i++) {
