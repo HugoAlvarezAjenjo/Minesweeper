@@ -34,7 +34,7 @@ public class Board {
         return isFirstMove;
     }
 
-    public void setFirstMove(boolean firstMove) {
+    public void setFirstMove(final boolean firstMove) {
         isFirstMove = firstMove;
     }
 
@@ -111,7 +111,7 @@ public class Board {
         return cellsLeft;
     }
 
-    public void setCellsLeft(int cellsLeft) {
+    public void setCellsLeft(final int cellsLeft) {
         this.cellsLeft = cellsLeft;
     }
 }

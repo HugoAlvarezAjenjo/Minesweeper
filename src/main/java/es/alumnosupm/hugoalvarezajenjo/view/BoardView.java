@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class BoardView extends JFrame {
 
-    Board board;
+    private final Board board;
 
     JPanel textPanel;
     JLabel textField;
@@ -17,7 +17,7 @@ public class BoardView extends JFrame {
     JButton[][] buttons;
 
 
-    public BoardView(Board board) {
+    public BoardView(final Board board) {
         super("Minesweeper");
         this.board = board;
 

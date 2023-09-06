@@ -20,7 +20,7 @@ public class Cell {
         return status;
     }
 
-    public void setStatus(CellStatus cellStatus) {
+    public void setStatus(final CellStatus cellStatus) {
         this.status = cellStatus;
     }
 
@@ -28,7 +28,7 @@ public class Cell {
         setStatus(REVEALED);
     }
 
-    public void setMine(boolean bool) {
+    public void setMine(final boolean bool) {
         hasMine = bool;
     }
 
