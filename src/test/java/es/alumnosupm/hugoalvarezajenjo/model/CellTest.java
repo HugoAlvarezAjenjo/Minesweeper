@@ -38,6 +38,7 @@ class CellTest {
         assertEquals(CellStatus.NONE, cell1.getStatus());
     }
 
+    @Test
     void setStatus() {
         assertEquals(CellStatus.NONE, cell1.getStatus());
         assertEquals(CellStatus.NONE, cell2.getStatus());
