@@ -4,6 +4,7 @@ import es.alumnosupm.hugoalvarezajenjo.model.Board;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class BoardView extends JFrame {
 
@@ -59,11 +60,19 @@ public class BoardView extends JFrame {
             for (int j = 0; j < buttons[i].length; j++) {
                 buttons[i][j] = new JButton();
                 buttons[i][j].setFocusable(false);
-                buttons[i][j].addActionListener(null); // TODO: Add ActionListerner
                 buttons[i][j].setFont(new Font("MV Boli", Font.BOLD,12));
                 buttons[i][j].setText("");
                 buttonPanel.add(buttons[i][j]);
             }
         }
     }
+
+    public void addButtonsActionListerner(ActionListener actionListener) {
+        for (int i = 0; i < buttons.length; i++) {
+            for (int j = 0; j < buttons[i].length; j++) {
+                buttons[i][j].addActionListener(actionListener);
+            }
+        }
+    }
+
 }
