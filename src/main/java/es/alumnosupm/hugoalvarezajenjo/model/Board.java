@@ -91,7 +91,7 @@ public class Board {
                 0 <= column && column < numCols;
     }
 
-    public int getCellNum(final int row, final int column) { // TODO: No cuenta correctamente
+    public int getCellNum(final int row, final int column) {
         int cellNum = 0;
 
         for (int i = row - 1; i <= row + 1; i++) {
