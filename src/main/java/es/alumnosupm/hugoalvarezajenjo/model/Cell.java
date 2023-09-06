@@ -24,15 +24,8 @@ public class Cell {
         this.status = cellStatus;
     }
 
-    public void reveal() {
-        setStatus(REVEALED);
-    }
-
     public void setMine(final boolean bool) {
         hasMine = bool;
     }
 
-    public void setMine() {
-        setMine(true);
-    }
 }
