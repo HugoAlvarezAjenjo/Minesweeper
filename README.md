@@ -39,6 +39,10 @@ If you wish to contribute to the project, please follow these steps:
 3. Make your changes and submit a pull request to send them to the main project.
 4. Wait for the review and approval of your changes by the development team.
 
+```bash
+git pull https://github.com/HugoAlvarezAjenjo/Minesweeper.git
+```
+
 ## License
 
 This project is licensed under the GNU General Public License (GPL). See the LICENSE file for more information about the license terms.
