@@ -13,7 +13,10 @@ public class BoardListerner implements ActionListener {
     private final Board board;
     private final BoardView boardView;
 
+    private SelectionMode selectionMode;
+
     public BoardListerner(final Board board) {
+        this.selectionMode = SelectionMode.DIG_MODE;
         this.board = board;
         this.boardView = new BoardView(board);
         boardView.addButtonsActionListerner(this);
@@ -30,6 +33,17 @@ public class BoardListerner implements ActionListener {
 
     private void checkCell(final int row, final int column) {
         Cell cell = board.getCell(row, column);
+
+        switch (selectionMode) {
+            case DIG_MODE -> {
+                if (cell.getStatus() == CellStatus.NONE) {
+                    revealCell(row, column);
+                }
+            }
+            case FLAG_MODE -> {
+                cell.toggleMark();
+            }
+        }
 
         switch (cell.getStatus()) {
             case MARKED, REVEALED -> {

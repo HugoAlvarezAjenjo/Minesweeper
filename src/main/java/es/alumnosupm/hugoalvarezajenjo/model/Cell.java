@@ -28,4 +28,14 @@ public class Cell {
         hasMine = bool;
     }
 
+    public void toggleMark() {
+        if (status == NONE) {
+            status = MARKED;
+        } else if (status == MARKED) {
+            status = NONE;
+        } else {
+            throw new RuntimeException("Toggle Mark in a revealed cell");
+        }
+    }
+
 }
