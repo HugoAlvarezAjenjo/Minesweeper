@@ -15,6 +15,8 @@ public class BoardView extends JFrame {
 
     JPanel buttonPanel;
     JButton[][] buttons;
+    JButton resetButton;
+    JButton flagButton;
 
 
     public BoardView(final Board board) {
@@ -27,8 +29,12 @@ public class BoardView extends JFrame {
 
         initScorePanel();
         initButtonPanels();
+        initResetButton();
+        initFlagButton();
 
         add(textPanel, BorderLayout.NORTH);
+        add(resetButton, BorderLayout.SOUTH);
+        add(flagButton, BorderLayout.WEST);
         add(buttonPanel);
 
         setSize(570, 570);
@@ -67,12 +73,35 @@ public class BoardView extends JFrame {
         }
     }
 
-    public void addButtonsActionListerner(ActionListener actionListener) {
+    private void initResetButton() {
+        resetButton = new JButton();
+        resetButton.setForeground(Color.BLUE);
+        resetButton.setBackground(Color.WHITE);
+        resetButton.setText("Reset");
+        resetButton.setFont(new Font("MV Boli", Font.BOLD, 20));
+        resetButton.setFocusable(false);
+
+    }
+
+    private void initFlagButton() {
+        flagButton = new JButton();
+        flagButton.setForeground(Color.ORANGE);
+        flagButton.setBackground(Color.WHITE);
+        flagButton.setText("|>");
+        flagButton.setFont(new Font("MV Boli", Font.BOLD, 20));
+        flagButton.setFocusable(false);
+    }
+
+    public void addActionListerners(ActionListener actionListener) {
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 buttons[i][j].addActionListener(actionListener);
             }
         }
+
+        resetButton.addActionListener(actionListener);
+        flagButton.addActionListener(actionListener);
+
     }
 
 }

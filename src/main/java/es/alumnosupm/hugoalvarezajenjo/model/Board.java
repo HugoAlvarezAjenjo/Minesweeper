@@ -12,6 +12,7 @@ public class Board {
     private final int numRows;
     private final int numCols;
     private final int numMines;
+    private int minesLeft;
 
     private int cellsLeft;
     private boolean isFirstMove;
@@ -23,6 +24,7 @@ public class Board {
         this.numCols = numCols;
         this.numMines = numMines;
 
+        this.minesLeft = numMines;
         this.cellsLeft = numRows * numCols - numMines;
         this.isFirstMove = true;
 
@@ -113,5 +115,21 @@ public class Board {
 
     public void setCellsLeft(final int cellsLeft) {
         this.cellsLeft = cellsLeft;
+    }
+
+    public int getMinesLeft() {
+        return minesLeft;
+    }
+
+    public void toggleCellMark(final int row, final int column) {
+        Cell cell = getCell(row, column);
+
+        if (cell.getStatus() == CellStatus.NONE) {
+            minesLeft--;
+        } else if (cell.getStatus() == CellStatus.MARKED) {
+            minesLeft++;
+        }
+
+        cell.toggleMark();
     }
 }
