@@ -11,7 +11,7 @@ This project is a [Minesweeper game](https://es.wikipedia.org/wiki/Buscaminas) i
 - [X] Interactive grid-based gameplay.
 - [X] Randomly generated minefield 
 - [ ] Adjustable difficulty levels.
-- [ ] Ability to flag cells suspected to have mines.
+- [X] Ability to flag cells suspected to have mines.
 - [X] Display of adjacent mine counts for uncovered cells.
 - [X] Game over detection when a mine is uncovered.
 - [X] Win detection when all non-mine cells are uncovered.
@@ -38,10 +38,6 @@ If you wish to contribute to the project, please follow these steps:
 2. Create a new branch in your fork to make your changes.
 3. Make your changes and submit a pull request to send them to the main project.
 4. Wait for the review and approval of your changes by the development team.
-
-```bash
-git pull https://github.com/HugoAlvarezAjenjo/Minesweeper.git
-```
 
 ## License
 
