@@ -9,8 +9,7 @@ This project is a [Minesweeper game](https://es.wikipedia.org/wiki/Buscaminas) i
 ## Features
 
 - [X] Interactive grid-based gameplay.
-- [X] Randomly generated minefield 
-- [ ] Adjustable difficulty levels.
+- [X] Randomly generated minefield
 - [X] Ability to flag cells suspected to have mines.
 - [X] Display of adjacent mine counts for uncovered cells.
 - [X] Game over detection when a mine is uncovered.
