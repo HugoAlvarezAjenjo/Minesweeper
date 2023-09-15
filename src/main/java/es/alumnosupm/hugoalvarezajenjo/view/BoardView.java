@@ -6,6 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * The `BoardView` class represents the graphical user interface (GUI) for a Minesweeper game board.
+ * It displays the game board, buttons, and game information to the player.
+ *
+ * @author Hugo Alvarez Ajenjo
+ * @version 0.0
+ */
 public class BoardView extends JFrame {
 
     private final Board board;
@@ -19,6 +26,11 @@ public class BoardView extends JFrame {
     JButton flagButton;
 
 
+    /**
+     * Constructs a new `BoardView` with the specified game board.
+     *
+     * @param board The game board to display.
+     */
     public BoardView(final Board board) {
         super("Minesweeper");
         this.board = board;
@@ -42,6 +54,10 @@ public class BoardView extends JFrame {
         setLocationRelativeTo(null); // Center of the screen
     }
 
+    /**
+     * Initializes the score panel at the top of the game board.
+     * This panel displays the number of remaining bombs.
+     */
     private void initScorePanel() {
         textPanel = new JPanel();
         textPanel.setVisible(true);
@@ -56,6 +72,9 @@ public class BoardView extends JFrame {
         textPanel.add(textField);
     }
 
+    /**
+     * Initializes the button grid panel where each cell is represented by a button.
+     */
     private void initButtonPanels() {
         buttonPanel = new JPanel();
         buttonPanel.setVisible(true);
@@ -73,6 +92,9 @@ public class BoardView extends JFrame {
         }
     }
 
+    /**
+     * Initializes the "Reset" button at the bottom of the game board.
+     */
     private void initResetButton() {
         resetButton = new JButton();
         resetButton.setForeground(Color.BLUE);
@@ -83,6 +105,9 @@ public class BoardView extends JFrame {
 
     }
 
+    /**
+     * Initializes the "Flag" button on the left side of the game board.
+     */
     private void initFlagButton() {
         flagButton = new JButton();
         flagButton.setForeground(Color.ORANGE);
@@ -92,6 +117,11 @@ public class BoardView extends JFrame {
         flagButton.setFocusable(false);
     }
 
+    /**
+     * Adds action listeners to buttons and controls.
+     *
+     * @param actionListener The action listener to be added to buttons and controls.
+     */
     public void addActionListerners(ActionListener actionListener) {
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {

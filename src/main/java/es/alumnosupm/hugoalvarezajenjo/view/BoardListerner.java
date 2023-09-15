@@ -8,6 +8,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The `BoardListener` class serves as the action listener for handling user interactions
+ * with the Minesweeper game board and controls.
+ *
+ * @author Hugo Alvarez Ajenjo
+ * @version 0.0
+ */
 public class BoardListerner implements ActionListener {
 
     private final Board board;
@@ -15,6 +22,11 @@ public class BoardListerner implements ActionListener {
 
     private SelectionMode selectionMode;
 
+    /**
+     * Initializes the `BoardListener` with the specified `Board` object.
+     *
+     * @param board The `Board` object to associate with this listener.
+     */
     public BoardListerner(final Board board) {
         this.selectionMode = SelectionMode.DIG_MODE;
         this.board = board;
@@ -22,6 +34,11 @@ public class BoardListerner implements ActionListener {
         boardView.addActionListerners(this);
     }
 
+    /**
+     * Handles the action event when a cell is clicked or a control button is pressed.
+     *
+     * @param e The action event triggered by a button click or control button press.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boardView.resetButton) {
@@ -37,6 +54,9 @@ public class BoardListerner implements ActionListener {
         }
     }
 
+    /**
+     * Toggles between flag mode and dig mode and updates the button's background color.
+     */
     private void alterateSelectionMode() {
         switch (selectionMode) {
             case FLAG_MODE -> {
@@ -50,6 +70,12 @@ public class BoardListerner implements ActionListener {
         }
     }
 
+    /**
+     * Gets the color for displaying numbers based on the number of neighboring mines.
+     *
+     * @param num The number of neighboring mines.
+     * @return The color for displaying the number.
+     */
     private Color getNumberColor(final int num) {
         Color color = Color.BLACK;
 
@@ -69,11 +95,20 @@ public class BoardListerner implements ActionListener {
         return color;
     }
 
+    /**
+     * Resets the game board.
+     */
     private void resetBoard() {
         boardView.dispose();
         new BoardListerner(new Board());
     }
 
+    /**
+     * Checks and processes the selected cell based on the current selection mode.
+     *
+     * @param row    The row index of the selected cell.
+     * @param column The column index of the selected cell.
+     */
     private void checkCell(final int row, final int column) {
         Cell cell = board.getCell(row, column);
 
@@ -89,6 +124,12 @@ public class BoardListerner implements ActionListener {
         }
     }
 
+    /**
+     * Toggles the marking status of a cell and updates the UI accordingly.
+     *
+     * @param row    The row index of the cell to toggle.
+     * @param column The column index of the cell to toggle.
+     */
     private void toggleCellMark(final int row, final int column) {
         if (board.getCell(row, column).getStatus() != CellStatus.REVEALED) {
             board.toggleCellMark(row, column);
@@ -114,6 +155,12 @@ public class BoardListerner implements ActionListener {
         }
     }
 
+    /**
+     * Reveals a cell and updates the UI with its content.
+     *
+     * @param row    The row index of the cell to reveal.
+     * @param column The column index of the cell to reveal.
+     */
     private void revealCell(final int row, final int column) {
         Cell cell = board.getCell(row, column);
 
@@ -146,7 +193,13 @@ public class BoardListerner implements ActionListener {
         }
 
     }
-
+    /**
+     * Reveals a cell in the UI with its content and color based on the number of neighboring mines.
+     *
+     * @param row     The row index of the cell to reveal.
+     * @param column  The column index of the cell to reveal.
+     * @param cellNum The number of neighboring mines for the cell.
+     */
     private void revealViewCell(final int row, final int column, final int cellNum) {
         Cell cell = board.getCell(row, column);
         cell.setStatus(CellStatus.REVEALED);
@@ -159,13 +212,18 @@ public class BoardListerner implements ActionListener {
 
     }
 
+    /**
+     * Checks if the game has been won by revealing all non-mine cells.
+     */
     private void checkWinner() {
         if (board.getCellsLeft() == 0) {
             gameEnd();
         }
     }
 
-    //* Simplificar estas dos funciones
+    /**
+     * Handles the game over state, updating UI and disabling all buttons.
+     */
     public void gameOver() {
         boardView.textField.setForeground(Color.RED);
         boardView.textField.setText("Game Over!");
@@ -173,6 +231,9 @@ public class BoardListerner implements ActionListener {
         disableButtons();
     }
 
+    /**
+     * Handles the game end state, updating UI and disabling all buttons.
+     */
     public void gameEnd() {
         boardView.textField.setForeground(Color.GREEN);
         boardView.textField.setText("You won!");
@@ -180,6 +241,9 @@ public class BoardListerner implements ActionListener {
         disableButtons();
     }
 
+    /**
+     * Disables all board buttons
+     */
     private void disableButtons() {
         for (int i = 0; i < boardView.buttons.length; i++) {
             for (int j = 0; j < boardView.buttons[i].length; j++) {
