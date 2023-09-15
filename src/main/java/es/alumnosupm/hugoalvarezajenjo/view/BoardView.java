@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * It displays the game board, buttons, and game information to the player.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public class BoardView extends JFrame {
 

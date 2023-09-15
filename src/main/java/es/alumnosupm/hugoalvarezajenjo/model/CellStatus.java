@@ -7,7 +7,7 @@ package es.alumnosupm.hugoalvarezajenjo.model;
  * - `NONE`: The cell has no special status.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public enum CellStatus {
     REVEALED, MARKED, NONE

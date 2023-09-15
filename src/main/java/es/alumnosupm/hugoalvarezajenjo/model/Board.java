@@ -7,7 +7,7 @@ import java.util.Random;
  * It contains the grid of cells, tracks the game state, and handles various game logic.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public class Board {
 

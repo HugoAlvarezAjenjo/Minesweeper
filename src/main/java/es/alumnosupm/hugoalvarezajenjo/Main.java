@@ -8,7 +8,7 @@ import es.alumnosupm.hugoalvarezajenjo.view.BoardListerner;
  * It creates an instance of the `BoardListener` class to start the game.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public class Main {
     public static void main(String[] args) {

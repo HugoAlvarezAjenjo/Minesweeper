@@ -7,7 +7,7 @@ import static es.alumnosupm.hugoalvarezajenjo.model.CellStatus.*;
  * Each cell can have a status and may or may not contain a mine.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public class Cell {
 

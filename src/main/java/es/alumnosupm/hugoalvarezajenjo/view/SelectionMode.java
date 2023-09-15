@@ -6,7 +6,7 @@ package es.alumnosupm.hugoalvarezajenjo.view;
  * - `DIG_MODE`: The player is in dig mode, used to reveal cell contents.
  *
  * @author Hugo Alvarez Ajenjo
- * @version 0.0
+ * @version 1.0
  */
 public enum SelectionMode {
     FLAG_MODE, DIG_MODE
