@@ -170,17 +170,17 @@ public class BoardListerner implements ActionListener {
         boardView.textField.setForeground(Color.RED);
         boardView.textField.setText("Game Over!");
 
-        for (int i = 0; i < boardView.buttons.length; i++) {
-            for (int j = 0; j < boardView.buttons[i].length; j++) {
-                boardView.buttons[i][j].setEnabled(false); // Disable the buttons
-            }
-        }
+        disableButtons();
     }
 
     public void gameEnd() {
         boardView.textField.setForeground(Color.GREEN);
         boardView.textField.setText("You won!");
 
+        disableButtons();
+    }
+
+    private void disableButtons() {
         for (int i = 0; i < boardView.buttons.length; i++) {
             for (int j = 0; j < boardView.buttons[i].length; j++) {
                 boardView.buttons[i][j].setEnabled(false); // Disable the buttons
